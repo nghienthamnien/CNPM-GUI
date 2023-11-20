@@ -1,0 +1,32 @@
+.header-bar {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 56px;
+    max-height: 56px;
+    z-index: 6666;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(74, 7478, 0.12);
+    box-shadow: 0 1px 4px 0 rgba(74, 74, 78, 0.12);
+    display: flex;
+    justify-content: space-between;
+}
+.header-logo {
+    align-self: center;
+    margin-left: 32px;
+    width: 97px;
+    height: 48px;
+}
+.header-logo img {
+    width: 4rem;
+    height: 3rem;
+    cursor: pointer;
+}
+.avatar {
+    align-self: center;
+    margin-right: 128px;
+}
+.ant-popover {
+    padding-right: 64px;
+}
