@@ -8,6 +8,7 @@ import store from './app/store';
 import HomePage from './pages/home-page';
 import ErrorPage from './pages/error-page';
 import LoginPage from './pages/login-page';
+import SignupPage from './pages/signup-page';
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     {
         path: 'auth/login',
         element: <LoginPage />,
+    },
+    {
+        path: 'auth/signup',
+        element: <SignupPage />,
     },
 ]);
 

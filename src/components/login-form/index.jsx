@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Checkbox } from 'antd';
 import { updateAuthenticate } from '../../slice/authsSlice';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -22,8 +22,14 @@ const App = () => {
             );
             console.log(data);
             if (data.success) {
-                const { token } = data.payload;
-                await localStorage.setItem('auth_token', token);
+                const { token, userName } = data.payload;
+                localStorage.setItem('auth_token', token);
+                localStorage.setItem(
+                    'user_info',
+                    JSON.stringify({
+                        name: userName,
+                    }),
+                );
                 dispatch(updateAuthenticate(true));
                 navigate(`${prevPath}`);
             }
@@ -50,7 +56,7 @@ const App = () => {
             >
                 <Input
                     prefix={<UserOutlined className="site-form-item-icon" />}
-                    placeholder="Phone number"
+                    placeholder="Username"
                 />
             </Form.Item>
             <Form.Item
@@ -68,6 +74,15 @@ const App = () => {
                     placeholder="Password"
                 />
             </Form.Item>
+            <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <a className="login-form-forgot ?" href="">
+                    Forgot password
+                </a>
+            </Form.Item>
             <Form.Item wrapperCol={{ offset: 8 }}>
                 <Button
                     type="primary"
@@ -77,11 +92,12 @@ const App = () => {
                 >
                     Log in
                 </Button>
-            </Form.Item>
-            <Form.Item wrapperCol={{ offset: 10 }}>
-                <a className="login-form-forgot" href="">
-                    Forgot password ?
-                </a>
+                <div>
+                    Or
+                    <a href="http://localhost:5173/auth/signup">
+                        register now!
+                    </a>
+                </div>
             </Form.Item>
         </Form>
     );

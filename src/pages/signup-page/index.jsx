@@ -1,21 +1,21 @@
 import './index.css';
-import LoginForm from '../../components/login-form';
+import SignupForm from '../../components/signup-form';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { setTitle } from '../../util/setTitle';
 
-const LoginPage = () => {
-    setTitle('Login');
+const SignupPage = () => {
+    setTitle('Đăng ký');
     return (
         <>
             <Header />
             <div className="wrapper">
-                <div className="login">
+                <div className="signup">
                     <div className="form-title">
-                        <h2>Welcome back!</h2>
+                        <h2>Đăng ký</h2>
                     </div>
-                    <div className="login-form">
-                        <LoginForm />
+                    <div className="signup-form">
+                        <SignupForm />
                     </div>
                 </div>
             </div>
@@ -24,4 +24,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default SignupPage;
