@@ -1,6 +1,4 @@
 #detail {
-    height: 100%;
     width: 100%;
-    top: 56px;
-    background-color: pink;
+    padding: 64px 80px 256px 80px;
 }
