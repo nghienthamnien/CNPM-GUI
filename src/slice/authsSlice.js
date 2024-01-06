@@ -8,6 +8,7 @@ const authsSlice = createSlice({
     initialState,
     reducers: {
         updateAuthenticate(state, action) {
+            // eslint-disable-next-line no-param-reassign
             state.isAuthenticate = action.payload;
         },
     },

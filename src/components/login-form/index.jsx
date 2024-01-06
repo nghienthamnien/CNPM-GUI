@@ -1,28 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Checkbox } from 'antd';
-import { updateAuthenticate } from '../../slice/authsSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { updateAuthenticate } from '../../slice/authsSlice';
 import './index.css';
+
 const App = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const navigate = useNavigate();
     const prevPath = location.state ? location.state.prevPath : '/';
+    const isAuth = useSelector((state) => state.auths.isAuthenticate);
+    useEffect(() => {
+        if (isAuth) {
+            navigate('/');
+        }
+    }, [isAuth]);
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
         const user = { ...values };
         (async () => {
-            const { data } = await axios.post(
+            const { data, status } = await axios.post(
                 'http://localhost:8080/api/v1/auth/login',
                 user,
                 { withCredentials: true },
             );
             console.log(data);
-            if (data.success) {
-                const { token, userName } = data.payload;
+            if (status === 200) {
+                const token = data.data.access_token;
+                const userName = `${data.data.last_name} ${data.data.first_name}`;
                 localStorage.setItem('auth_token', token);
                 localStorage.setItem(
                     'user_info',
@@ -43,7 +51,7 @@ const App = () => {
             labelCol={{ span: 2 }}
             wrapperCol={{ span: 15, offset: 4 }}
             style={{ minWidth: 600 }}
-            size={'large'}
+            size="large"
         >
             <Form.Item
                 name="username"
@@ -56,7 +64,7 @@ const App = () => {
             >
                 <Input
                     prefix={<UserOutlined className="site-form-item-icon" />}
-                    placeholder="Username"
+                    placeholder="Tên đăng nhập"
                 />
             </Form.Item>
             <Form.Item
@@ -71,16 +79,16 @@ const App = () => {
                 <Input
                     prefix={<LockOutlined className="site-form-item-icon" />}
                     type="password"
-                    placeholder="Password"
+                    placeholder="Mật khẩu"
                 />
             </Form.Item>
             <Form.Item>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
                     <Checkbox>Remember me</Checkbox>
                 </Form.Item>
-
-                <a className="login-form-forgot ?" href="">
-                    Forgot password
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a className="login-form-forgot ?" href="#">
+                    Quên mật khẩu ?
                 </a>
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 8 }}>
@@ -90,12 +98,13 @@ const App = () => {
                     className="login-form-button"
                     style={{ width: '180px' }}
                 >
-                    Log in
+                    Đăng nhập
                 </Button>
+
                 <div>
-                    Or
+                    Hoặc &nbsp;
                     <a href="http://localhost:5173/auth/signup">
-                        register now!
+                        Tạo tài khoản mới
                     </a>
                 </div>
             </Form.Item>

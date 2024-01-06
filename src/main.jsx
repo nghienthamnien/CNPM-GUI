@@ -9,6 +9,7 @@ import HomePage from './pages/home-page';
 import ErrorPage from './pages/error-page';
 import LoginPage from './pages/login-page';
 import SignupPage from './pages/signup-page';
+import Recipe from './components/recipe';
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         element: <ProtectedRoute />,
         errorElement: <ErrorPage />,
         children: [
+            {
+                path: 'recipes/:slug',
+                element: <Recipe />,
+            },
             {
                 index: true,
                 element: <HomePage />,

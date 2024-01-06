@@ -6,10 +6,45 @@ const netCarbs = '19g';
 const rating = '4.5';
 const time = '19min';
 const data = [
-    { id: 1, dishImage, title, description, netCarbs, rating, time },
-    { id: 2, dishImage, title, description, netCarbs, rating, time },
-    { id: 3, dishImage, title, description, netCarbs, rating, time },
-    { id: 4, dishImage, title, description, netCarbs, rating, time },
-    { id: 5, dishImage, title, description, netCarbs, rating, time },
+    {
+        id: '65880fc1e6493b6ffce79e65',
+        dishImage,
+        title,
+        description,
+        netCarbs,
+        rating,
+        time,
+        slug: 'pho-dac-biet',
+    },
+    {
+        id: 2,
+        dishImage,
+        title,
+        description,
+        netCarbs,
+        rating,
+        time,
+        slug: 'pho-dac-biet',
+    },
+    {
+        id: 3,
+        dishImage,
+        title,
+        description,
+        netCarbs,
+        rating,
+        time,
+        slug: 'pho-dac-biet',
+    },
+    {
+        id: 4,
+        dishImage,
+        title,
+        description,
+        netCarbs,
+        rating,
+        time,
+        slug: 'pho-dac-biet',
+    },
 ];
 export default data;
