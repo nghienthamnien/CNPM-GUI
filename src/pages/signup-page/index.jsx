@@ -1,3 +1,4 @@
+import React from 'react';
 import './index.css';
 import SignupForm from '../../components/signup-form';
 import Header from '../../components/header';
