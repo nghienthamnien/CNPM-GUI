@@ -1,0 +1,30 @@
+.recipe {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px;
+    padding: 16px 128px;
+}
+.instruction {
+    max-width: 70%;
+    font-size: 16px;
+    padding: 0px 32px;
+}
+.ingredient {
+    min-width: 20%;
+    background-color: #f6fdea;
+    padding: 16px;
+}
+.ingredient p {
+    font-size: 20px;
+    margin: 4px 0px;
+}
+.recipe h2 {
+    color: #06b05b;
+    font-size: 32px;
+}
+.dish-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    position: absolute;
+    top: 64px;
+    left: 128px;
+}
