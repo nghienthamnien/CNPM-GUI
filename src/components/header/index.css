@@ -26,6 +26,7 @@
 .avatar {
     align-self: center;
     margin: 0 128px;
+    cursor: pointer;
 }
 .ant-popover {
     padding-right: 64px;
