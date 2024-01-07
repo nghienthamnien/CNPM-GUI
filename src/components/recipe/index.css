@@ -27,4 +27,6 @@
     position: absolute;
     top: 64px;
     left: 128px;
+    font-size: 20px;
+    width: 512px;
 }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const { Meta } = Card;
 const App = ({ dishInfo }) => {
-    const { dishImage, title, description, rating, time } = dishInfo;
+    const { dishImage, title, rating, time } = dishInfo;
     return (
         <Card
             cover={<img alt="example" src={dishImage} />}
@@ -27,11 +27,7 @@ const App = ({ dishInfo }) => {
                 </div>,
             ]}
         >
-            <Meta
-                // avatar={<Avatar src={netCarbs} />}
-                title={title}
-                description={description}
-            />
+            <Meta title={title} />
         </Card>
     );
 };
