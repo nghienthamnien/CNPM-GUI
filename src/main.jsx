@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './index.css';
@@ -10,6 +11,8 @@ import ErrorPage from './pages/error-page';
 import LoginPage from './pages/login-page';
 import SignupPage from './pages/signup-page';
 import Recipe from './components/recipe';
+import Admin from './components/admin';
+
 
 const router = createBrowserRouter([
     {
@@ -34,6 +37,10 @@ const router = createBrowserRouter([
     {
         path: 'auth/signup',
         element: <SignupPage />,
+    },
+    {
+        path: 'admin',
+        element: <Admin />,
     },
 ]);
 
