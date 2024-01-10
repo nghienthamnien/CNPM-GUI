@@ -8,6 +8,7 @@ const AddIngredientForm = () => {
     const handleAdd = (e) => {
         e.preventDefault();
         if (extra) dispatch(addExtra(extra));
+        setExtra('');
     };
     const handleChange = (e) => {
         setExtra(e.target.value);

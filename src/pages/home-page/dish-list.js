@@ -46,5 +46,25 @@ const data = [
         time,
         slug: 'pho-dac-biet',
     },
+    {
+        id: 5,
+        dishImage,
+        title,
+        description,
+        netCarbs,
+        rating,
+        time,
+        slug: 'pho-dac-biet',
+    },
+    {
+        id: 6,
+        dishImage,
+        title,
+        description,
+        netCarbs,
+        rating,
+        time,
+        slug: 'pho-dac-biet',
+    },
 ];
 export default data;

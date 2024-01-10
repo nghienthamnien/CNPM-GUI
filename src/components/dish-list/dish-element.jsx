@@ -5,14 +5,16 @@ import PropTypes from 'prop-types';
 
 const { Meta } = Card;
 const App = ({ dishInfo }) => {
-    const { dishImage, title, rating, time } = dishInfo;
+    const dishImage =
+        'https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/pho-style-beef-noodle-soup-f314a261.jpg';
+    const { title, rating, time } = dishInfo;
     return (
         <Card
             cover={<img alt="example" src={dishImage} />}
             hoverable
             actions={[
                 <div>
-                    {rating}
+                    {rating || 4}
                     &nbsp;
                     <StarFilled
                         style={{
@@ -21,12 +23,18 @@ const App = ({ dishInfo }) => {
                     />
                 </div>,
                 <div>
-                    {time}&nbsp;
+                    {time || 30}&nbsp;
                     <ClockCircleOutlined />
                 </div>,
             ]}
         >
-            <Meta title={title} />
+            <Meta
+                title={
+                    <div style={{ whiteSpace: 'initial', color: '#404040' }}>
+                        {title}
+                    </div>
+                }
+            />
         </Card>
     );
 };
