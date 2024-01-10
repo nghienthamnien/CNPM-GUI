@@ -4,7 +4,6 @@
     position: absolute;
     width: 100%;
     min-height: 64px;
-    z-index: 6666;
     background-color: #fff;
     box-shadow: 0 1px 4px 0 rgba(74, 74, 78, 0.12);
     display: flex;
@@ -24,9 +23,12 @@
     cursor: pointer;
 }
 .avatar {
-    align-self: center;
-    margin: 0 128px;
+    margin: 0px 32px;
     cursor: pointer;
+    border-radius: 50%;
+}
+.avatar:hover {
+    background-color: #e0e0e0;
 }
 .ant-popover {
     padding-right: 64px;
@@ -41,4 +43,14 @@
 .ant-card-head-title {
     font-size: large;
     color: blueviolet;
+}
+.shopping-cart {
+    cursor: pointer;
+    margin: 0px 32px;
+    font-size: 32px;
+    padding: 8px;
+    border-radius: 50%;
+}
+.shopping-cart:hover {
+    background-color: #e0e0e0;
 }

@@ -19,7 +19,6 @@ const App = () => {
         }
     }, [isAuth]);
     const onFinish = (values) => {
-        console.log('Received values of form: ', values);
         const user = { ...values };
         (async () => {
             const { data, status } = await axios.post(
@@ -27,7 +26,6 @@ const App = () => {
                 user,
                 { withCredentials: true },
             );
-            console.log(data);
             if (status === 200) {
                 const token = data.data.access_token;
                 const userName = `${data.data.last_name} ${data.data.first_name}`;

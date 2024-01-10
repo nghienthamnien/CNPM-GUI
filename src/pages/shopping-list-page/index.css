@@ -1,0 +1,11 @@
+.main {
+    margin: 32px 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.shopping-list-title {
+    color: #00994c;
+    font-size: 1.875rem;
+}

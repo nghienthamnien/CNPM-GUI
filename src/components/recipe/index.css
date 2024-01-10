@@ -9,14 +9,23 @@
     font-size: 16px;
     padding: 0px 32px;
 }
-.ingredient {
+.ingredient-list {
     min-width: 20%;
     background-color: #f6fdea;
     padding: 16px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
-.ingredient p {
+.ingredient-list p {
     font-size: 20px;
     margin: 4px 0px;
+}
+.ingredient-list > h2 {
+    position: absolute;
+    top: 0;
 }
 .recipe h2 {
     color: #06b05b;
@@ -29,4 +38,10 @@
     left: 128px;
     font-size: 20px;
     width: 512px;
+}
+.add-ingredient-button {
+    border: solid 2px #06b05b;
+    color: #06b05b;
+    position: absolute;
+    bottom: 16px;
 }

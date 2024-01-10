@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Instruction from './instruction';
-import Ingredient from './ingredient';
+import IngredientList from './ingredient-list';
 import Section from './section';
 import callAPI from '../../util/callAPI';
 import { setTitle } from '../../util/setTitle';
@@ -16,8 +16,7 @@ const Recipe = () => {
         callAPI
             .get(`/dish/${id}`)
             .then((res) => {
-                const { data, status } = res;
-                console.log(data, status);
+                const { data } = res;
 
                 setRecipe(data.data);
             })
@@ -39,7 +38,7 @@ const Recipe = () => {
                 />
             </div>
             <div className="recipe">
-                <Ingredient ingredients={recipe.ingredients || []} />
+                <IngredientList ingredients={recipe.ingredients || []} />
                 <Instruction instructions={recipe.instructions || []} />
             </div>
         </>

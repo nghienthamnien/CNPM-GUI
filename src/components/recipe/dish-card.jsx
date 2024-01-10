@@ -11,7 +11,6 @@ const App = ({ title, description, time, rating }) => {
         setIsModalOpen(true);
     };
     const handleOk = () => {
-        console.log(rateValue);
         setIsModalOpen(false);
     };
     const handleCancel = () => {

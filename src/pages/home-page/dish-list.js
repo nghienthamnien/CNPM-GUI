@@ -3,8 +3,8 @@ const dishImage =
 const title = 'Pho';
 const description = 'This is discirption';
 const netCarbs = '19g';
-const rating = '4.5';
-const time = '19min';
+const rating = 4.5;
+const time = '19 phút';
 const data = [
     {
         id: '65880fc1e6493b6ffce79e65',

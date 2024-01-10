@@ -1,0 +1,48 @@
+.shopping-list {
+    min-width: 800px;
+}
+.shopping-list h2 {
+    margin-left: 32px;
+    color: #00994c;
+}
+.shopping-list > div {
+    padding-bottom: 32px;
+}
+.ingredient {
+    position: relative;
+    padding: 2px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    min-width: 500px;
+}
+
+.ingredient input:checked ~ .checkmark {
+    text-decoration: line-through;
+    color: #a0a0a0;
+}
+
+.ingredient input {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+}
+.checkmark {
+    margin: 4px 16px;
+}
+
+.ingredient button {
+    position: absolute;
+    right: 12px;
+    color: #a0a0a0;
+    padding: 6px 10px;
+}
+
+.ingredient button:hover {
+    color: #606060;
+    font-weight: bold;
+}

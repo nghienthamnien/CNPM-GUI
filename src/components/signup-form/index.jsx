@@ -11,7 +11,6 @@ const App = () => {
     const navigate = useNavigate();
     const handleSubmit = (value) => {
         (async () => {
-            console.log(value);
             const { data, status } = await axios.post(
                 'http://localhost:8080/api/v1/auth/signup',
                 value,

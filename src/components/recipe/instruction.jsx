@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { Steps } from 'antd';
 
 const App = ({ instructions }) => {
-    console.log(instructions);
     const [current, setCurrent] = useState(0);
     const onChange = (value) => {
-        console.log('onChange:', value);
         setCurrent(value);
     };
     return (

@@ -21,8 +21,7 @@ const App = ({ dishInfo }) => {
                     />
                 </div>,
                 <div>
-                    {time}
-                    &nbsp;
+                    {time}&nbsp;
                     <ClockCircleOutlined />
                 </div>,
             ]}
@@ -38,7 +37,7 @@ App.propTypes = {
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         rating: PropTypes.number.isRequired,
-        time: PropTypes.number.isRequired,
+        time: PropTypes.string.isRequired,
     }).isRequired,
 };
 export default App;
