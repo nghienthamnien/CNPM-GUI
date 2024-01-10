@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
+import { Spin } from 'antd';
 import './index.css';
 import ProtectedRoute from './pages/protected-route';
 import store from './app/store';
@@ -10,6 +13,7 @@ import ErrorPage from './pages/error-page';
 import LoginPage from './pages/login-page';
 import SignupPage from './pages/signup-page';
 import Recipe from './components/recipe';
+import ShoppingListPage from './pages/shopping-list-page';
 
 const router = createBrowserRouter([
     {
@@ -21,6 +25,7 @@ const router = createBrowserRouter([
                 path: 'recipes/:slug',
                 element: <Recipe />,
             },
+            { path: 'shopping-list', element: <ShoppingListPage /> },
             {
                 index: true,
                 element: <HomePage />,
@@ -37,10 +42,14 @@ const router = createBrowserRouter([
     },
 ]);
 
+const persistor = persistStore(store);
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Provider store={store}>
-            <RouterProvider router={router} />
+            <PersistGate loading={<Spin />} persistor={persistor}>
+                <RouterProvider router={router} />
+            </PersistGate>
         </Provider>
     </React.StrictMode>,
 );
