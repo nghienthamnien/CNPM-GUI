@@ -1,7 +1,7 @@
 import React from 'react';
 import DishCard from './dish-card';
 
-function Section({ backgroundImage, title, description, time, rating }) {
+function Section({ id, backgroundImage, title, description, time, rating }) {
     const sectionStyle = {
         backgroundImage: `url(${backgroundImage})`,
         backgroungRepeat: 'no-repeat',
@@ -12,6 +12,7 @@ function Section({ backgroundImage, title, description, time, rating }) {
     return (
         <section style={sectionStyle}>
             <DishCard
+                id={id}
                 title={title}
                 description={description}
                 time={time}

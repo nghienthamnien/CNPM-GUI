@@ -27,6 +27,7 @@ const Recipe = () => {
         <>
             <div>
                 <Section
+                    id={id}
                     title={recipe.title}
                     description={recipe.description}
                     time={recipe.time || 45}

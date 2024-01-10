@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
-import { Card, Rate, Button, Modal } from 'antd';
+import { Card, Rate, Button, Modal, notification } from 'antd';
 import { ClockCircleOutlined, StarOutlined } from '@ant-design/icons';
+import callAPI from '../../util/callAPI';
 
 const desc = ['Quá tệ', 'Tệ', 'Bình thường', 'Tốt', 'Tuyệt vời'];
 
-const App = ({ title, description, time, rating }) => {
+const App = ({ id, title, description, time, rating }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [rateValue, setRateValue] = useState(3);
     const showModal = () => {
         setIsModalOpen(true);
     };
     const handleOk = () => {
+        (async () => {
+            const { data } = await callAPI.post(
+                `http://localhost:8080/api/v1/comments/${id}`,
+                { rating: rateValue },
+                { withCredentials: true },
+            );
+            console.log(data);
+        })();
+        notification.success({ message: 'Đã gửi đánh giá' });
         setIsModalOpen(false);
     };
     const handleCancel = () => {
