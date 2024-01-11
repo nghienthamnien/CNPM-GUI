@@ -2,6 +2,7 @@ import React from 'react';
 import DishList from '../../components/dish-list';
 import './index.css';
 import data from './dish-list';
+import Carourel from '../../components/carousel';
 
 const HomePage = () => {
     let mealName = 'Breakfast Ideas';
@@ -11,6 +12,7 @@ const HomePage = () => {
     return (
         <div className="main">
             <DishList props={{ name: mealName, data }} />
+            <Carourel />
         </div>
     );
 };
