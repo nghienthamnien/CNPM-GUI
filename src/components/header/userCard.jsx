@@ -42,6 +42,21 @@ const App = () => {
                         </Button>
                     </Link>
                 </div>
+
+                <div
+                    style={{
+                        width: '240px',
+                        height: '40px',
+                        margin: '4px 0px',
+                    }}
+                >
+                    <Link to="/contribute">
+                        <Button size="large" style={{ width: '202px' }}>
+                            Chia sẻ công thức
+                        </Button>
+                    </Link>
+                </div>
+
                 <div
                     style={{
                         width: '240px',

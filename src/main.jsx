@@ -28,6 +28,7 @@ const router = createBrowserRouter([
             },
             { path: 'shopping-list', element: <ShoppingListPage /> },
             { path: 'survey', element: <SurveyPage /> },
+            { path: 'contribute' },
             {
                 index: true,
                 element: <HomePage />,
