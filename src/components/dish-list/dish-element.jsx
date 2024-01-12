@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 
 const { Meta } = Card;
 const App = ({ dishInfo }) => {
-    const dishImage =
-        'https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/pho-style-beef-noodle-soup-f314a261.jpg';
-    const { title, rating, time } = dishInfo;
+    const { title, rating, time, img_url: imgUrl } = dishInfo;
     return (
         <Card
-            cover={<img alt="example" src={dishImage} />}
+            cover={
+                <img alt="example" src={`data:image/jpeg;base64,${imgUrl}`} />
+            }
             hoverable
             actions={[
                 <div>

@@ -11,27 +11,23 @@ const App = () => {
     const navigate = useNavigate();
     const handleSubmit = (value) => {
         (async () => {
-            const { data, status } = await axios.post(
+            const { data } = await axios.post(
                 'http://localhost:8080/api/v1/auth/signup',
                 value,
-                { withCredentials: true },
             );
             console.log(data);
-            if (status === 201) {
-                // const { token, userName } = data.payload;
-                const token =
-                    'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImtoYWlkZXB0cmFpMiIsInN1YiI6ImtoYWlkZXB0cmFpMiIsImV4cCI6MTcwNjA4NjQwMn0.5-s06V40R9WUB7WcQ7lZKF_AnBqgdBGfBi5wrZbHsws';
-                const userName = 'Tran Khai';
-                localStorage.setItem('auth_token', token);
-                localStorage.setItem(
-                    'user_info',
-                    JSON.stringify({
-                        name: userName,
-                    }),
-                );
-                dispatch(updateAuthenticate(true));
-                navigate(`/survey`);
-            }
+
+            const token = data.data.access_token;
+            const userName = `${data.data.last_name} ${data.data.first_name}`;
+            localStorage.setItem('auth_token', token);
+            localStorage.setItem(
+                'user_info',
+                JSON.stringify({
+                    name: userName,
+                }),
+            );
+            dispatch(updateAuthenticate(true));
+            navigate(`/survey`);
         })();
     };
     return (

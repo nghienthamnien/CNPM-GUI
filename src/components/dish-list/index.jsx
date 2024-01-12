@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Col, Divider, Row } from 'antd';
+import { Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import DishElement from './dish-element';
 import callAPI from '../../util/callAPI';
 import './index.css';
 
-const App = ({ props }) => {
+const App = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         callAPI.get('http://localhost:8080/api/v1/dish?limit=6').then((res) => {
@@ -24,11 +24,6 @@ const App = ({ props }) => {
     ));
     return (
         <div className="dish-list">
-            <Divider orientation="left">
-                <h1 style={{ color: '#0066CC', margin: '0px' }}>
-                    {props.name}
-                </h1>
-            </Divider>
             <Row gutter={[16, 24]}>{dishes}</Row>
         </div>
     );

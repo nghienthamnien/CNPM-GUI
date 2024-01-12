@@ -10,9 +10,12 @@ const App = ({ imgLink, title, description, link }) => {
         <Card
             hoverable
             style={{
-                width: 200,
+                width: 300,
+                height: 450,
             }}
-            cover={<img alt="example" src={imgLink} />}
+            cover={
+                <img alt="example" src={imgLink} style={{ height: '170px' }} />
+            }
             onClick={() => {
                 openInNewTab(link);
             }}
@@ -23,7 +26,9 @@ const App = ({ imgLink, title, description, link }) => {
                         {title}
                     </div>
                 }
-                description={description}
+                description={
+                    <p style={{ whiteSpace: 'normal' }}>{description}</p>
+                }
             />
         </Card>
     );

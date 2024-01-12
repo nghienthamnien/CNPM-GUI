@@ -9,6 +9,7 @@ import './index.css';
 
 const Recipe = () => {
     const [recipe, setRecipe] = useState({});
+    const [ingredients, setIngre] = useState([]);
     const location = useLocation();
     const { id, title } = location.state;
     setTitle(title);
@@ -18,11 +19,11 @@ const Recipe = () => {
             .then((res) => {
                 const { data } = res;
 
-                setRecipe(data.data);
+                setRecipe(data.data.dish);
+                setIngre(data.data.ingredients);
             })
             .catch((err) => console.log(err));
     }, [id]);
-
     return (
         <>
             <div>
@@ -32,14 +33,17 @@ const Recipe = () => {
                     description={recipe.description}
                     time={recipe.time || 45}
                     rating={recipe.rating || 4.5}
-                    backgroundImage={
-                        recipe.dishImage ||
-                        'https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/pho-style-beef-noodle-soup-f314a261.jpg'
-                    }
+                    backgroundImage={recipe.img_url}
                 />
             </div>
             <div className="recipe">
-                <IngredientList ingredients={recipe.ingredients || []} />
+                <IngredientList
+                    ingredients={
+                        ingredients.length
+                            ? ingredients
+                            : ['CẢI BẮP', 'DẦU NGÔ', 'CHẢ QUẾ LỢN']
+                    }
+                />
                 <Instruction instructions={recipe.instructions || []} />
             </div>
         </>

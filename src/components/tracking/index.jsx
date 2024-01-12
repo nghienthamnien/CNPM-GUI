@@ -1,16 +1,12 @@
 import React from 'react';
-import Chart from 'chart.js/auto';
-import { CategoryScale } from 'chart.js';
-import data from './Data';
-
 import LineChart from './LineChart';
+import './index.css';
 
-Chart.register(CategoryScale);
-
-export default function App() {
+export default function App({ name, x, y }) {
     return (
-        <div className="App">
-            <LineChart chartData={data} />
+        <div className="tracking">
+            <LineChart x={x} y={y} />
+            <h3>{name}</h3>
         </div>
     );
 }

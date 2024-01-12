@@ -8,6 +8,7 @@ import './css/magnific-popup.css';
 import Carourel from '../../components/carousel';
 import BlogList from '../../components/blog';
 import { Link } from 'react-router-dom';
+import Chart from '../../components/tracking';
 
 const names = ['Khoa học', 'Phù hợp', 'Lành mạnh'];
 
@@ -65,6 +66,8 @@ const HeroSection = () => {
             </section>
             <Carourel />
             <BlogList />
+            <Chart name={'Chiều cao'} />
+            <Chart name={'Cân nặng'} />
         </>
     );
 };
