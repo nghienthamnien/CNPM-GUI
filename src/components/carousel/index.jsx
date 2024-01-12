@@ -1,12 +1,12 @@
 import React from 'react';
 import { Divider } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import data from './data';
-import SuccessStory from './success-story';
+import SuccessStory from './SuccessStory';
 import './index.css';
 
 const App = () => {
     const [index, setIndex] = React.useState(0);
-    const delay = 5000;
     const carousel = data.map((element) => (
         <SuccessStory
             key={element.id}
@@ -15,54 +15,50 @@ const App = () => {
             info={element.info}
         />
     ));
-    const timeoutRef = React.useRef(null);
-
-    function resetTimeout() {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-    }
-
-    React.useEffect(() => {
-        resetTimeout();
-        timeoutRef.current = setTimeout(
-            () =>
-                setIndex((prevIndex) =>
-                    prevIndex === data.length - 1 ? 0 : prevIndex + 1,
-                ),
-            delay,
-        );
-
-        return () => {
-            resetTimeout();
-        };
-    }, [index]);
 
     return (
-        <div style={{ width: '80%', marginTop: '64px' }}>
+        <div className="user-response">
             <Divider orientation="left" plain>
                 <h1 style={{ color: '#0066CC' }}>Phản hồi của người dùng</h1>
             </Divider>
+            <LeftOutlined
+                onClick={() => {
+                    setIndex((prevIndex) =>
+                        prevIndex === 0 ? 0 : prevIndex - 1,
+                    );
+                }}
+            />
             <div className="slideshow">
                 <div
                     className="slideshow-slider"
-                    style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+                    style={{
+                        transform: `translate3d(${-index * 33}% , 0, 0)`,
+                    }}
                 >
                     {carousel}
                 </div>
                 <div className="slideshowDots">
-                    {data.map((element) => (
+                    {data.slice(1, -1).map((element) => (
                         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                         <div
                             key={element.id}
                             className={`slideshowDot${
-                                index === element.id ? ' active' : ''
+                                index === element.id - 1 ? ' active' : ''
                             }`}
-                            onClick={() => setIndex(element.id)}
+                            onClick={() => setIndex(element.id - 1)}
                         />
                     ))}
                 </div>
             </div>
+            <RightOutlined
+                onClick={() => {
+                    setIndex((prevIndex) =>
+                        prevIndex === data.length - 3
+                            ? data.length - 3
+                            : prevIndex + 1,
+                    );
+                }}
+            />
         </div>
     );
 };
