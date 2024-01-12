@@ -6,7 +6,7 @@ import './index.css';
 
 const App = () => {
     const [index, setIndex] = React.useState(0);
-    const delay = 2500;
+    const delay = 5000;
     const carousel = data.map((element) => (
         <SuccessStory
             key={element.id}
@@ -52,11 +52,13 @@ const App = () => {
                 </div>
                 <div className="slideshowDots">
                     {data.map((element) => (
+                        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                         <div
                             key={element.id}
                             className={`slideshowDot${
                                 index === element.id ? ' active' : ''
                             }`}
+                            onClick={() => setIndex(element.id)}
                         />
                     ))}
                 </div>
