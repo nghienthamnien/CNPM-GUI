@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'antd';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { updateAuthenticate } from '../../slice/authsSlice';
 
 const App = () => {
@@ -20,10 +21,56 @@ const App = () => {
                 fontSize: '18px',
             }}
         >
-            <div>
-                <Button type="primary" size="large" onClick={handleClick}>
-                    Log out
-                </Button>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                }}
+            >
+                <div
+                    style={{
+                        width: '240px',
+                        height: '40px',
+                        margin: '4px 0px',
+                    }}
+                >
+                    <Link to="/survey">
+                        <Button size="large" style={{ width: '202px' }}>
+                            Cập nhật sức khỏe
+                        </Button>
+                    </Link>
+                </div>
+                <div
+                    style={{
+                        width: '240px',
+                        height: '40px',
+                        margin: '4px 0px',
+                    }}
+                >
+                    <Link to="/shopping-list">
+                        <Button size="large" style={{ width: '202px' }}>
+                            Shopping List
+                        </Button>
+                    </Link>
+                </div>
+                <div
+                    style={{
+                        width: '240px',
+                        height: '40px',
+                        padding: '4px 0px',
+                    }}
+                >
+                    <Button
+                        type="primary"
+                        size="large"
+                        onClick={handleClick}
+                        style={{ width: '202px' }}
+                    >
+                        Log out
+                    </Button>
+                </div>
             </div>
         </Card>
     );

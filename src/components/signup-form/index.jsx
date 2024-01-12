@@ -30,7 +30,7 @@ const App = () => {
                     }),
                 );
                 dispatch(updateAuthenticate(true));
-                navigate(`/`);
+                navigate(`/survey`);
             }
         })();
     };

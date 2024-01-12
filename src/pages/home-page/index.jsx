@@ -3,6 +3,7 @@ import DishList from '../../components/dish-list';
 import './index.css';
 import data from './dish-list';
 import Carourel from '../../components/carousel';
+import BlogList from '../../components/blog';
 
 const HomePage = () => {
     let mealName = 'Breakfast Ideas';
@@ -13,6 +14,7 @@ const HomePage = () => {
         <div className="main">
             <DishList props={{ name: mealName, data }} />
             <Carourel />
+            <BlogList />
         </div>
     );
 };

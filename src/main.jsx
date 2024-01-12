@@ -14,6 +14,7 @@ import LoginPage from './pages/login-page';
 import SignupPage from './pages/signup-page';
 import Recipe from './components/recipe';
 import ShoppingListPage from './pages/shopping-list-page';
+import SurveyPage from './pages/survey-page';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
                 element: <Recipe />,
             },
             { path: 'shopping-list', element: <ShoppingListPage /> },
+            { path: 'survey', element: <SurveyPage /> },
             {
                 index: true,
                 element: <HomePage />,

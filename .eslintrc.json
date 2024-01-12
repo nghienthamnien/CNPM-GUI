@@ -17,5 +17,5 @@
         "react/function-component-definition": [0],
         "react/prop-types": [0]
     },
-    "ignorePatterns": ["assets", "*.css"]
+    "ignorePatterns": ["assets", "*.css", "landing-page"]
 }
