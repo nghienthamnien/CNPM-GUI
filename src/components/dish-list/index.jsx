@@ -11,7 +11,7 @@ const App = ({ props }) => {
         callAPI.get('http://localhost:8080/api/v1/dish?limit=6').then((res) => {
             setData(res.data.data);
         });
-    }, data);
+    }, []);
     const dishes = data.map((item) => (
         <Col span={8} key={item.id} className="dish-element">
             <Link
