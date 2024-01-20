@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo #latest version
+    container_name: mongo-container-cnpm-hust
+    ports:
+      - 27019:27017
+
+    volumes:
+      - './mongodb:/data/db'
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+      MONGO_INITDB_DATABASE: cnpm_hust
+volumes:
+  mongodb_data:

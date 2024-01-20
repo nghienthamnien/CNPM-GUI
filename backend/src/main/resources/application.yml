@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:123456@localhost:27019/test?authSource=admin
+      database: cnpm_hust
+      auto-index-creation: true
+  profiles:
+    active: default
+
+jwt:
+  expiration: 2592000
+  secretKey: "TUlJQ0lqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF2bm9SajRaSzhTSkVlZHBSSEtwTApIR2tqdEtIaVoyU2dONUptdERZVDMzUDhlUjF6bDRaQnJFbnltM1VRRjFjTGxZVnU1RXZOWmtHeUtsaUp2Q2c5CjdCUkRWOFVKRnAyUjg3RkdWYTdxOFpoeVV1U1Vq"
